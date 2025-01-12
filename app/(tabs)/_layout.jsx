@@ -3,15 +3,23 @@ import React from "react";
 import { Tabs } from "expo-router";
 import icons from "../../constants/icons";
 
-const TabIcon = ({ color, Icon }) => {
+const TabIcon = ({ color, Icon, name, focused }) => {
   return (
-    <View className="mt-2">
+    <View className="mt-2 gap-2">
       <Icon
-        width={24}
+        width={84}
         height={24}
         stroke={color} // Set the fill color
         strokeWidth={2}
       />
+      <Text
+        style={{ color: color }}
+        className={`${
+          focused ? "font-semibold" : "font-regular"
+        } text-xs text-center`}
+      >
+        {name}
+      </Text>
     </View>
   );
 };
@@ -27,7 +35,9 @@ const TabsLayout = () => {
           tabBarStyle: {
             backgroundColor: "#161622",
             height: 84,
+            paddingTop: 12,
             borderTopWidth: 1,
+            borderTopColor: "#161622",
           },
         }}
       >
@@ -35,8 +45,14 @@ const TabsLayout = () => {
           name="settings"
           options={{
             title: "Settings",
+            headerShown: false,
             tabBarIcon: ({ focused, color }) => (
-              <TabIcon color={color} focused={focused} Icon={icons.settings} />
+              <TabIcon
+                color={color}
+                focused={focused}
+                Icon={icons.settings}
+                name={"Settings"}
+              />
             ),
           }}
         />
@@ -45,7 +61,12 @@ const TabsLayout = () => {
           options={{
             title: "Ai",
             tabBarIcon: ({ focused, color }) => (
-              <TabIcon color={color} focused={focused} Icon={icons.ai} />
+              <TabIcon
+                color={color}
+                focused={focused}
+                Icon={icons.ai}
+                name={"Ai"}
+              />
             ),
           }}
         />
@@ -54,7 +75,12 @@ const TabsLayout = () => {
           options={{
             title: "Home",
             tabBarIcon: ({ focused, color }) => (
-              <TabIcon color={color} focused={focused} Icon={icons.home} />
+              <TabIcon
+                color={color}
+                focused={focused}
+                Icon={icons.home}
+                name={"Home"}
+              />
             ),
           }}
         />
@@ -63,7 +89,12 @@ const TabsLayout = () => {
           options={{
             title: "Contacts",
             tabBarIcon: ({ focused, color }) => (
-              <TabIcon color={color} focused={focused} Icon={icons.contacts} />
+              <TabIcon
+                color={color}
+                focused={focused}
+                Icon={icons.contacts}
+                name={"Contacts"}
+              />
             ),
           }}
         />
@@ -72,7 +103,12 @@ const TabsLayout = () => {
           options={{
             title: "Profile",
             tabBarIcon: ({ focused, color }) => (
-              <TabIcon color={color} focused={focused} Icon={icons.profile} />
+              <TabIcon
+                color={color}
+                focused={focused}
+                Icon={icons.profile}
+                name={"Profile"}
+              />
             ),
           }}
         />

@@ -5,7 +5,10 @@ import "../global.css";
 
 const index = () => {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+    <View
+      className="bg-bg-color"
+      style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
+    >
       <Text className="text-red-400">index</Text>
       <Link href={"/home"}>Go to Home</Link>
     </View>
